@@ -1,4 +1,4 @@
-SavantPHP - The Simpl, Elegant Template System For PHP
+SavantPHP - The Simple, Elegant Template System For PHP
 =======================================================
 
 SavantPHP is a powerful but lightweight object-oriented template system for PHP.
