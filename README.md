@@ -1,11 +1,13 @@
-SavantPHP - The Simple, Elegant Template System For PHP
-=======================================================
+SavantPHP - The Simplest Templating System For PHP minimalist
+=============================================================
 
-SavantPHP is a lightweight object-oriented template system for PHP. It aims at ONE thing, being a simple & light-weight TEMPLATING system. I'm focusing only on that ONE thing. PHP can do everything, so do everything with it, just use SavantPHP for only separating the "view/templating" concern, that's it.
+SavantPHP is a lightweight object-oriented template system for PHP. It aims at ONE thing, being a simple & lightweight TEMPLATING system. I'm focusing only on that ONE thing. PHP can do everything, so do everything with it, just use SavantPHP for only separating the "view/templating" concern from your business logic, that's it.
+
+It has a proper **namespace** support & installable nicely via **composer** (unlike it's previous oldish one - see Credit section below)
 
 Unlike other template systems, Savant by default does not compile your templates into PHP; instead, it uses PHP itself as its template language so you don't need to learn a new markup system.
 
-It is not a competitor to any of the likes of Dwoo or Twig..etc. SavantPHP is for those PHP/templating minimalists - "I just want to separate my front layer(view) from the back layer(code logic)" in the most simple & effective way and that's it, nothing more, nothing less, nothing else (no added crap).
+It is not a competitor to any of the likes of Dwoo or Twig..etc. SavantPHP is for those PHP/templating minimalists - **"I just want to separate my front layer(view) from the back layer(code logic)" in the most simple & effective way and that's it, nothing more, nothing less, nothing else (no added crap).**
 
 ### How To Install
 
@@ -62,8 +64,8 @@ Voila! Simple huh?
 ### The Future
 
 - I have been a big fan and user of Savant. I decided to keep it alive and I'm still using it.
-- I am not sure how far this will go, but I'm going to leave it here so that it can be used with the latest tools like composer, making it have proper namespace..etc just for me (and perhaps some others) to keep using it.
-- Savant PHP still makes very much sense using as it honors the KISS principle. I like to keep it simple.
+- I am not sure how far this will go, but I'm going to support it however I can (grateful if **YOU** contribute too) so that it can be used with the latest tools available like composer, making it have proper namespace..etc. This would be very helpful to me but I hope to some others too, who like me are inline with the aim above. So keep using it! cheers.
+- Savant PHP still makes very much sense using as it honors the KISS principle. Consider this Savant PHP Reloaded!
 
 ### Your Contribution
 
@@ -71,3 +73,8 @@ Voila! Simple huh?
 - Send your pull request on github.
 - And report any bugs either via email (savantphp@7php.com) or via github issues.
 (thanks guys!)
+
+
+### TODO
+- Add Tests suite
+- See if any further refactoring or performance twaek is needed
