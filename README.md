@@ -52,8 +52,8 @@ Voila! Simple huh?
 ### CREDIT
 
 - This project has been retouched by Khayrattee on Dec 2015 to keep the spirit of Savant which was **started & created by The Mighty 'Paul M. Jones' who is the author of [Aura PHP](https://github.com/auraphp).**
-- This project was handed over to Brett Bieber, but it seems it has been shamelessly abondonned as well as it's domain name.
-- This project is hence a FORK from [https://github.com/saltybeagle/Savant3], but reworked to having namespaces & composer magic & slimming down the aim of Savant.
+- This project was handed over to Brett Bieber, but it seems it has been shamelessly abandoned as well as it's domain name. And he seems not so keen to be positive to PRs and on top of that no single sign of positivity in terms of pushing this project forward - too sad!
+- This project is hence a FORK from [https://github.com/saltybeagle/Savant3], but reworked to having namespaces & composer magic & slimming down the aim of Savant - **hence the new name Savant PHP**.
 
 ### NOTE
 
