@@ -64,7 +64,7 @@ Voila! Simple huh?
 ### The Future
 
 - I have been a big fan and user of Savant. I decided to keep it alive and I'm still using it.
-- I am not sure how far this will go, but I'm going to support it however I can (grateful if **YOU** contribute too) so that it can be used with the latest tools available like composer, making it have proper namespace..etc. This would be very helpful to me but I hope to some others too, who like me are inline with the aim above. So keep using it! cheers.
+- I am not sure how far this will go, but I'm going to support it however I can (grateful if **YOU** contribute too) so that it can be used with the latest tools available & latest PHP version available. This would be very helpful to many of people out there who like me & YOU are inline with the aim above. So do this! cheers.
 - Savant PHP still makes very much sense using as it honors the KISS principle. Consider this Savant PHP Reloaded!
 
 ### Your Contribution
@@ -77,4 +77,4 @@ Voila! Simple huh?
 
 ### TODO
 - Add Tests suite
-- See if any further refactoring or performance twaek is needed
+- See if any further refactoring or performance tweak is needed
