@@ -20,13 +20,15 @@
 
     <section class="main-content">
       <h1>
-<a id="savant-php---the-simple-elegant-template-system-for-php" class="anchor" href="#savant-php---the-simple-elegant-template-system-for-php" aria-hidden="true"><span class="octicon octicon-link"></span></a>Savant PHP - The Simple, Elegant Template System For PHP</h1>
+<a id="savantphp---the-simplest-templating-system-for-php-minimalist" class="anchor" href="#savantphp---the-simplest-templating-system-for-php-minimalist" aria-hidden="true"><span class="octicon octicon-link"></span></a>SavantPHP - The Simplest Templating System For PHP minimalist</h1>
 
-<p>Savant PHP is a lightweight object-oriented template system for PHP. <strong>It aims at ONE thing, being a SIMPLE lightweight TEMPLATING system</strong>. I'm focusing only on that ONE thing. <strong>PHP can do everything, so do everything with it, just use SavantPHP for only separating the "view/templating" concern, that's it</strong>.</p>
+<p>SavantPHP is a lightweight object-oriented template system for PHP. It aims at ONE thing, being a simple &amp; lightweight TEMPLATING system. I'm focusing only on that ONE thing. PHP can do everything, so do everything with it, just use SavantPHP for only separating the "view/templating" concern from your business logic, that's it.</p>
+
+<p>It has a proper <strong>namespace</strong> support &amp; installable nicely via <strong>composer</strong> (unlike it's previous oldish one - see Credit section below)</p>
 
 <p>Unlike other template systems, Savant by default does not compile your templates into PHP; instead, it uses PHP itself as its template language so you don't need to learn a new markup system.</p>
 
-<p>It is not a competitor to any of the likes of Dwoo or Twig..etc. Savant PHP is for those PHP/templating minimalists - "I just want to separate my front layer(view) from the back layer(code logic)" in the most simple &amp; effective way and that's it, nothing more, nothing less, nothing else (no added crap).</p>
+<p>It is not a competitor to any of the likes of Dwoo or Twig..etc. SavantPHP is for those PHP/templating minimalists - <strong>"I just want to separate my front layer(view) from the back layer(code logic)" in the most simple &amp; effective way and that's it, nothing more, nothing less, nothing else (no added crap).</strong></p>
 
 <h3>
 <a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>How To Install</h3>
@@ -69,17 +71,17 @@
 <a id="attention" class="anchor" href="#attention" aria-hidden="true"><span class="octicon octicon-link"></span></a>Attention</h3>
 
 <ul>
-<li>While Savant PHP does provide the <strong>$this-&gt;escape()</strong> to sanitize your output, it's your responsibility to filter and sanitize your input deeply inside your 'coding back' (php code file). The aim with Savant PHP is only to act as a templating system, the rest is upon you!</li>
+<li>While SavantPHP does provide the <strong>$this-&gt;escape()</strong> to sanitize your output, it's your responsibility to filter and sanitize your input deeply inside your 'coding back' (php code file). The aim with SavantPHP is only to act as a templating system, the rest is upon you!</li>
 </ul>
 
 <h3>
 <a id="credit" class="anchor" href="#credit" aria-hidden="true"><span class="octicon octicon-link"></span></a>CREDIT</h3>
 
 <ul>
-<li>This project has been renamed from PHP Savant to <strong>Savant PHP</strong> &amp; retouched by Khayrattee on Dec 2015 to keep the spirit of Savant which was <strong>started &amp; created by The Mighty 'Paul M. Jones' who is the author of <a href="https://github.com/auraphp">Aura PHP</a>.</strong>
+<li>This project has been retouched by Khayrattee on Dec 2015 to keep the spirit of Savant which was <strong>started &amp; created by The Mighty 'Paul M. Jones' who is the author of <a href="https://github.com/auraphp">Aura PHP</a>.</strong>
 </li>
-<li>This project was handed over to Brett Bieber, but it seems it has been shamelessly abandoned as well as it's domain name. And he seems not so keen to be positive to PRs and on top of that no single sign of positivity in terms of pushing this project forward as well - too sad!</li>
-<li>This project is hence a FORK from [<a href="https://github.com/saltybeagle/Savant3">https://github.com/saltybeagle/Savant3</a>], but reworked to having namespaces &amp; composer magic &amp; slimming down the aim of Savant.</li>
+<li>This project was handed over to Brett Bieber, but it seems it has been shamelessly abandoned as well as it's domain name. And he seems not so keen to be positive to PRs and on top of that no single sign of positivity in terms of pushing this project forward - too sad!</li>
+<li>This project is hence a FORK from [<a href="https://github.com/saltybeagle/Savant3">https://github.com/saltybeagle/Savant3</a>], but reworked to having namespaces &amp; composer magic &amp; slimming down the aim of Savant - <strong>hence the new name Savant PHP</strong>.</li>
 </ul>
 
 <h3>
@@ -94,8 +96,8 @@
 
 <ul>
 <li>I have been a big fan and user of Savant. I decided to keep it alive and I'm still using it.</li>
-<li>I am not sure how far this will go, but I'm going to leave it here so that it can be used with the latest tools like composer, making it have proper namespace..etc just for me (and perhaps some others) to keep using it.</li>
-<li>Savant PHP still makes very much sense using as it honors the KISS principle. I like to keep it simple.</li>
+<li>I am not sure how far this will go, but I'm going to support it however I can (grateful if <strong>YOU</strong> contribute too) so that it can be used with the latest tools available like composer, making it have proper namespace..etc. This would be very helpful to me but I hope to some others too, who like me are inline with the aim above. So keep using it! cheers.</li>
+<li>Savant PHP still makes very much sense using as it honors the KISS principle. Consider this Savant PHP Reloaded!</li>
 </ul>
 
 <h3>
@@ -106,6 +108,14 @@
 <li>Send your pull request on github.</li>
 <li>And report any bugs either via email (<a href="mailto:savantphp@7php.com">savantphp@7php.com</a>) or via github issues.
 (thanks guys!)</li>
+</ul>
+
+<h3>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h3>
+
+<ul>
+<li>Add Tests suite</li>
+<li>See if any further refactoring or performance twaek is needed</li>
 </ul>
 
       <footer class="site-footer">
