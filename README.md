@@ -23,8 +23,10 @@ composer require sevenphp/savantphp
 Example:
 
 ```php
-
 /* file.php */
+
+use SavantPHP\Savant;
+
 $tpl = new Savant(['template_path' => '/path/to/yourViews/']);
 $tpl->mynameis = 'Wasseem';
 
@@ -34,8 +36,8 @@ $tpl->display(); //or $response = $tpl->getOutput();
 ```
 
 ```php
-
 /* file.tpl.php */
+
 <html>
 <head></head>
 <body>
