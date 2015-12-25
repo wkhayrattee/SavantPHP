@@ -13,7 +13,7 @@ namespace SavantPHP;
  * @package SavantPHP
  */
 
-class Savant 
+class Savant
 {
     /**
      * Array of configuration parameters.
@@ -26,12 +26,8 @@ class Savant
         'resource_path' => array(),
         'error_text'    => "\n\ntemplate error, examine fetch() result\n\n",
         'exceptions'    => false,
-        'autoload'      => false,
         'compiler'      => null,
-        'filters'       => array(),
-        'plugins'       => array(),
         'template'      => null,
-        'plugin_conf'   => array(),
         'extract'       => false,
         'fetch'         => null,
         'escape'        => array('htmlspecialchars'),
@@ -74,11 +70,6 @@ class Savant
             $this->setErrorText($config['error_text']);
         }
 
-        // set the autoload flag
-        if (isset($config['autoload'])) {
-            $this->setAutoload($config['autoload']);
-        }
-
         // set the extraction flag
         if (isset($config['extract'])) {
             $this->setExtract($config['extract']);
@@ -97,62 +88,6 @@ class Savant
         // set the output escaping callbacks
         if (isset($config['escape'])) {
             $this->setEscape($config['escape']);
-        }
-
-        // set the default plugin configs
-        if (isset($config['plugin_conf']) && is_array($config['plugin_conf'])) {
-            foreach ($config['plugin_conf'] as $name => $opts) {
-                $this->setPluginConf($name, $opts);
-            }
-        }
-
-        // set the default filter callbacks
-        if (isset($config['filters'])) {
-            $this->addFilters($config['filters']);
-        }
-    }
-
-
-    /**
-     *
-     * Executes a main plugin method with arbitrary parameters.
-     *
-     * @access public
-     * @param string $func The plugin method name.
-     * @param array $args The parameters passed to the method.
-     * @return mixed The plugin output, or a Savant3_Error with an
-     * ERR_PLUGIN code if it can't find the plugin.
-     */
-    public function __call($func, $args)
-    {
-        $plugin = $this->plugin($func);
-        if ($this->isError($plugin)) {
-            return $plugin;
-        }
-
-        // try to avoid the very-slow call_user_func_array()
-        // for plugins with very few parameters.  thanks to
-        // Andreas Korthaus for profiling the code to find
-        // the slowdown.
-        switch (count($args)) {
-            case 0:
-                return $plugin->$func();
-
-            case 1:
-                return $plugin->$func($args[0]);
-                break;
-
-            case 2:
-                return $plugin->$func($args[0], $args[1]);
-                break;
-
-            case 3:
-                return $plugin->$func($args[0], $args[1], $args[2]);
-                break;
-
-            default:
-                return call_user_func_array(array($plugin, $func), $args);
-                break;
         }
     }
 
@@ -184,63 +119,6 @@ class Savant
     }
 
     /**
-     * Returns an internal plugin object; creates it as needed.
-     *
-     * @access public
-     * @param string $name The plugin name.  If this plugin has not
-     * been created yet, this method creates it automatically.
-     * @return mixed The plugin object, or a Savant3_Error with an
-     * ERR_PLUGIN code if it can't find the plugin.
-     */
-    public function plugin($name)
-    {
-        // shorthand reference
-        $plugins =& $this->configList['plugins'];
-        $autoload = $this->configList['autoload'];
-
-        // is the plugin method object already instantiated?
-        if (! array_key_exists($name, $plugins)) {
-            // not already instantiated, so load it up.
-            // set up the class name.
-            $class = "Plugin_$name";
-
-            // has the class been loaded?
-            if (! class_exists($class, $autoload)) {
-                // class is not loaded, set up the file name.
-                $file = "$class.php";
-
-                // make sure the class file is available from the resource path.
-                $result = $this->findFile('resource', $file);
-                if (! $result) {
-                    // not available, this is an error
-                    return $this->error(
-                        'ERR_PLUGIN',
-                        array('method' => $name)
-                    );
-                } else {
-                    // available, load the class file
-                    include_once $result;
-                }
-            }
-
-            // get the default configuration for the plugin.
-            $plugin_conf =& $this->configList['plugin_conf'];
-            if (! empty($plugin_conf[$name])) {
-                $opts = $plugin_conf[$name];
-            } else {
-                $opts = array();
-            }
-
-            // add the Savant reference
-            $opts['Savant'] = $this;
-            // instantiate the plugin with its options.
-            $plugins[$name] = new $class($opts);
-        }
-        // return the plugin object
-        return $plugins[$name];
-    }
-
-    /**
      * Returns a copy of the Savant3 configuration parameters.
      *
      * @access public
@@ -258,19 +136,6 @@ class Savant
             return $this->configList[$key]; // return the requested key
         }
     }
-
-    /**
-     * Sets __autoload() usage on or off.
-     *
-     * @access public
-     * @param bool $flag True to use __autoload(), false to not use it.
-     * @return void
-     */
-    public function setAutoload($flag)
-    {
-        $this->configList['autoload'] = (bool) $flag;
-    }
-
 
     /**
      * Sets a custom compiler/pre-processor callback for template sources.
@@ -326,19 +191,6 @@ class Savant
     public function setExtract($flag)
     {
         $this->configList['extract'] = (bool) $flag;
-    }
-
-    /**
-     * Sets config array for a plugin.
-     *
-     * @access public
-     * @param string $plugin The plugin to configure.
-     * @param array $config The configuration array for the plugin.
-     * @return void
-     */
-    public function setPluginConf($plugin, $config = null)
-    {
-        $this->configList['plugin_conf'][$plugin] = $config;
     }
 
     /**
@@ -774,7 +626,7 @@ class Savant
     }
 
     /**
-     * Compiles, executes, and filters a template source.
+     * Compiles & executes a template source.
      *
      * @access public
      * @param string $tpl The template to process; if null, uses the
@@ -810,19 +662,9 @@ class Savant
             // buffer output so we can return it instead of displaying.
             ob_start();
 
-            // are we using filters?
-            if ($this->configList['filters']) {
-                // use a second buffer to apply filters. we used to set
-                // the ob_start() filter callback, but that would
-                // silence errors in the filters. Hendy Irawan provided
-                // the next three lines as a "verbose" fix.
-                ob_start();
-                include $this->configList['fetch'];
-                echo $this->applyFilters(ob_get_clean());
-            } else {
-                // no filters being used.
-                include $this->configList['fetch'];
-            }
+            // no filters being used. - filters have been removed Dec 15 | Khayrattee
+            include $this->configList['fetch'];
+
             // reset the fetch script value, get the buffer, and return.
             $this->configList['fetch'] = null;
             return ob_get_clean();
@@ -892,64 +734,6 @@ class Savant
             // no errors, the result is a path to a script
             return $result;
         }
-    }
-
-    /**
-     * Resets the filter stack to the provided list of callbacks.
-     *
-     * @access protected
-     * @param array An array of filter callbacks.
-     * @return void
-     */
-    public function setFilters()
-    {
-        $this->configList['filters'] = (array) @func_get_args();
-    }
-
-    /**
-     * Adds filter callbacks to the stack of filters.
-     *
-     * @access protected
-     * @param array An array of filter callbacks.
-     * @return void
-     */
-    public function addFilters()
-    {
-        // add the new filters to the static config variable
-        // via the reference
-        foreach ((array) @func_get_args() as $callback) {
-            $this->configList['filters'][] = $callback;
-        }
-    }
-
-    /**
-     * Runs all filter callbacks on buffered output.
-     *
-     * @param $buffer
-     * @return mixed
-     */
-    protected function applyFilters($buffer)
-    {
-        $autoload = $this->configList['autoload'];
-        foreach ($this->configList['filters'] as $callback) {
-            // if the callback is a static Filter method,
-            // and not already loaded, try to auto-load it.
-            if (is_array($callback) &&
-                is_string($callback[0]) &&
-                substr($callback[0], 0, 15) == 'Filter_' &&
-                ! class_exists($callback[0], $autoload)) {
-
-                // load the Filter_*.php resource
-                $file = $callback[0] . '.php';
-                $result = $this->findFile('resource', $file);
-                if ($result) {
-                    include_once $result;
-                }
-            }
-            // can't pass a third $this param, it chokes the OB system.
-            $buffer = call_user_func($callback, $buffer);
-        }
-        return $buffer;
     }
 
     /**
