@@ -1,6 +1,6 @@
 {
   "name": "sevenphp/savantphp",
-  "description": "SavantPHP is the Simplest Templating System For PHP minimalist. It aims at ONE thing, being a simple lightweight TEMPLATING system. The focus is on ONE thing - PHP can do everything, so do everything with PHP, just use SavantPHP for only separating the 'view/templating' concern from your business logic. Hence the philosophy of 'I just want to separate my front layer(view) from the back layer(code logic) in the most simple & effective way & that's it, nothing more, nothing less, nothing else (no added crap)'",
+  "description": "Savant (SavantPHP) is the Simplest Templating System For PHP minimalist. It aims at ONE thing, being a simple lightweight TEMPLATING system. The focus is on ONE thing - PHP can do everything, so do everything with PHP, just use SavantPHP for only separating the 'view/templating' concern from your business logic. Hence the philosophy of 'I just want to separate my front layer(view) from the back layer(code logic) in the most simple & effective way & that's it, nothing more, nothing less, nothing else (no added crap)'",
   "keywords": ["templating", "templates", "views", "php template", "php templating", "php savant", "savant php"],
   "license": "MIT",
   "authors": [
