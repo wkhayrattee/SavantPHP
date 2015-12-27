@@ -9,13 +9,13 @@ Unlike other template systems, SavantPHP by default does not compile your templa
 
 It is not a competitor to any of the likes of Dwoo or Twig..etc. SavantPHP is for those PHP/templating minimalists - **"I just want to separate my front layer(view) from the back layer(code logic)" in the most simple & effective way and that's it, nothing more, nothing less, nothing else (no added crap).**
 
-### How To Install
+### How To Install SavantPHP
 
 ```bash
 $ composer require sevenphp/savantphp
 ```
 
-### Why Use Savant for Templates?
+### Why Use SavantPHP for Templates?
 
 
 - You don't need to learn a new language or markup to create a template. The template language is PHP, and the template file is a regular PHP file.
