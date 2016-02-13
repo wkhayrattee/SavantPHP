@@ -2,15 +2,14 @@
 namespace SavantPHP;
 
 /**
- * Class SavantError
+ * Class SavantPHPerror
  * @package SavantPHP
  */
-class SavantError 
+class SavantPHPerror
 {
     /**
-     * The error code, typically a Savant 'ERR_*' string.
+     * The error code, typically a SavantPHP 'ERR_*' string.
      *
-     * @access public
      * @var string
      */
     public $code = null;
@@ -18,15 +17,13 @@ class SavantError
     /**
      * An array of error-specific information.
      *
-     * @access public
      * @var array
      */
-    public $info = array();
+    public $info = [];
 
     /**
      * The error severity level.
      *
-     * @access public
      * @var int
      */
     public $level = E_USER_ERROR;
@@ -34,7 +31,6 @@ class SavantError
     /**
      * A debug backtrace for the error, if any.
      *
-     * @access public
      * @var array
      */
     public $trace = null;
@@ -43,12 +39,9 @@ class SavantError
     /**
      * Constructor.
      *
-     * @access public
-     * @param array $conf An associative array where the key is a
-     * SavantError property and the value is the value for that
-     * property.
+     * @param array $conf An associative array where the KEY is a SavantPHPerror property and the VALUE is the value for that property.
      */
-    public function __construct($conf = array())
+    public function __construct($conf = [])
     {
         // set public properties
         foreach ($conf as $key => $val) {
@@ -63,7 +56,6 @@ class SavantError
     /**
      * Magic method for output dump.
      *
-     * @access public
      * @return String
      */
     public function __toString()
