@@ -12,7 +12,7 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">SavantPHP</h1>
-      <h2 class="project-tagline">SavantPHP is the simplest, but yet powerful object-oriented templating system for PHP minimalist</h2>
+      <h2 class="project-tagline">SavantPHP is the simplest, but yet powerful object-oriented, templating system for PHP minimalist</h2>
       <a href="https://github.com/7php/SavantPHP" class="btn">View on GitHub</a>
       <a href="https://github.com/7php/SavantPHP/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/7php/SavantPHP/tarball/master" class="btn">Download .tar.gz</a>
@@ -20,90 +20,109 @@
 
     <section class="main-content">
       <h1>
-<a id="savantphp---the-simplest-templating-system-for-php-minimalist" class="anchor" href="#savantphp---the-simplest-templating-system-for-php-minimalist" aria-hidden="true"><span class="octicon octicon-link"></span></a>SavantPHP - The Simplest Templating System For PHP minimalist</h1>
+<a id="savantphp---the-simplest-templating-system-for-php-minimalist" class="anchor" href="#savantphp---the-simplest-templating-system-for-php-minimalist" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SavantPHP - The Simplest Templating System For PHP minimalist</h1>
 
-<p>SavantPHP is a lightweight object-oriented template system for PHP. It aims at ONE thing, being a simple &amp; lightweight TEMPLATING system. I'm focusing only on that ONE thing. PHP can do everything, so do everything with it, just use SavantPHP for only separating the "view/templating" concern from your business logic, that's it.</p>
+<p>SavantPHP is a simple and minimalistic, yet object-oriented, template system for PHP. It aims at ONE thing, being a simple &amp; lightweight TEMPLATING system. We focus only on that ONE thing. PHP can do everything, so do everything with it, just use SavantPHP for only separating the "view/templating" concern from your business logic, that's it.</p>
 
-<p>It has a proper <strong>namespace</strong> support &amp; installable nicely via <strong>composer</strong> (unlike it's previous oldish one - see Credit section below)</p>
+<p>It has a proper <strong>namespace</strong> support and installable nicely via <strong>composer</strong> (unlike it's previous oldish one - see Credit section below)</p>
 
-<p>Unlike other template systems, Savant by default does not compile your templates into PHP; instead, it uses PHP itself as its template language so you don't need to learn a new markup system.</p>
+<p>Unlike other template systems, SavantPHP does not compile your templates into PHP; instead, it uses PHP itself as its template language so you don't need to learn a new markup system and you can use and access any method or functions within your app inside those template.</p>
 
-<p>It is not a competitor to any of the likes of Dwoo or Twig..etc. SavantPHP is for those PHP/templating minimalists - <strong>"I just want to separate my front layer(view) from the back layer(code logic)" in the most simple &amp; effective way and that's it, nothing more, nothing less, nothing else (no added crap).</strong></p>
+<p>It is not a competitor to any of the likes of Dwoo or Twig..etc. SavantPHP is for those PHP/templating minimalists - <strong>"I just want to separate my front layer(view) from the back layer(code logic)" in the most simple and effective way and that's it, nothing more, nothing less, nothing else (no added crap).</strong></p>
+
+<h2>
+<a id="how-to-install-savantphp" class="anchor" href="#how-to-install-savantphp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How To Install SavantPHP</h2>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1">$ <span class="pl-c1">composer</span> <span class="pl-k">require</span> <span class="pl-c1">sevenphp</span><span class="pl-k">/</span><span class="pl-c1">savantphp</span></span></pre></div>
 
 <h3>
-<a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>How To Install</h3>
-
-<p>composer require sevenphp/savantphp</p>
-
-<h3>
-<a id="why-use-savant-for-templates" class="anchor" href="#why-use-savant-for-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why Use Savant for Templates?</h3>
+<a id="why-use-savantphp-for-templates" class="anchor" href="#why-use-savantphp-for-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Why Use SavantPHP for Templates?</h3>
 
 <ul>
+<li>Has <strong>namespace</strong> support</li>
+<li>Is installable via <strong>composer</strong>
+</li>
+<li>Is not jammed with lots of wrappers, inbuilt compiling..etc like others</li>
+<li>The code footprint is small and you can easily follow through the Classes and get the hang of it quickly</li>
 <li>You don't need to learn a new language or markup to create a template. The template language is PHP, and the template file is a regular PHP file.</li>
 <li>Because your template script is a regular PHP script, you can sprinkle it with comments and use phpDocumentor to document it.</li>
-<li>No need to assign variable to an array before you can use it inside your template. The variable usage is more direct and simple. (see example code below)</li>
+<li>No need to assign variable to an array before you can use it inside your template. <strong>The variable usage is direct</strong> and simple. (see example code below)</li>
 </ul>
 
 <p>Example:</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">/* file.php */</span></span>
 <span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">SavantPHP\Savant</span>;</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$tpl</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Savant</span>([<span class="pl-s"><span class="pl-pds">'</span>template_path<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>/path/to/yourViews/<span class="pl-pds">'</span></span>]);</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">SavantPHP\SavantPHP</span>;</span>
+<span class="pl-s1"><span class="pl-smi">$yourConfigBag</span> <span class="pl-k">=</span> [</span>
+<span class="pl-s1">    <span class="pl-c1">\SavantPHP\</span><span class="pl-c1">SavantPHP</span><span class="pl-k">::</span><span class="pl-c1">TPL_PATH_LIST</span> <span class="pl-k">=&gt;</span> [<span class="pl-s"><span class="pl-pds">'</span>/path/to/yourViews/<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>/path/to/someOtherFolder/anotherViewFolder/<span class="pl-pds">'</span></span>], <span class="pl-c">//as you can see, set all possible places where your template will reside</span></span>
+<span class="pl-s1">    <span class="pl-c1">\SavantPHP\</span><span class="pl-c1">SavantPHP</span><span class="pl-k">::</span><span class="pl-c1">CONTAINER</span>     <span class="pl-k">=&gt;</span> <span class="pl-smi">$yourContainer</span> <span class="pl-c">//can be anything, e.g a pimple container</span></span>
+<span class="pl-s1">];</span>
+<span class="pl-s1"><span class="pl-smi">$tpl</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">SavantPHP</span>(<span class="pl-smi">$yourConfigBag</span>);</span>
 <span class="pl-s1"><span class="pl-smi">$tpl</span><span class="pl-k">-&gt;</span><span class="pl-smi">mynameis</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Wasseem<span class="pl-pds">'</span></span>;</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-smi">$tpl</span><span class="pl-k">-&gt;</span>setTemplate(<span class="pl-s"><span class="pl-pds">'</span>file.tpl.php<span class="pl-pds">'</span></span>);</span>
 <span class="pl-s1"><span class="pl-smi">$tpl</span><span class="pl-k">-&gt;</span>display(); <span class="pl-c">//or $response = $tpl-&gt;getOutput();</span></span>
 <span class="pl-s1"></span></pre></div>
 
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">/* file.tpl.php */</span></span>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">/* file.tpl.php | See how other **master templates** are also included within a template */</span></span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-k">&lt;</span><span class="pl-c1">html</span><span class="pl-k">&gt;</span></span>
 <span class="pl-s1"><span class="pl-k">&lt;</span><span class="pl-c1">head</span><span class="pl-k">&gt;&lt;</span><span class="pl-k">/</span><span class="pl-c1">head</span><span class="pl-k">&gt;</span></span>
 <span class="pl-s1"><span class="pl-k">&lt;</span><span class="pl-c1">body</span><span class="pl-k">&gt;</span></span>
 <span class="pl-s1">    <span class="pl-k">&lt;</span><span class="pl-c1">p</span><span class="pl-k">&gt;</span><span class="pl-c1">Hello</span>, <span class="pl-c1">my</span> <span class="pl-c1">name</span> <span class="pl-c1">is</span> <span class="pl-k">&lt;</span>?<span class="pl-c1">php</span> <span class="pl-k">if</span>(<span class="pl-c1">isset</span>(<span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">mynameis</span>)) <span class="pl-c1">echo</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span>escape(<span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">mynameis</span>) </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>&lt;/<span class="pl-ent">p</span>&gt;
-&lt;<span class="pl-ent">body</span>&gt;
-&lt;/<span class="pl-ent">html</span>&gt;
+
+    <span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-c1">echo</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span>includeTemplate(<span class="pl-s"><span class="pl-pds">'</span>master/sidebar.tpl.php<span class="pl-pds">'</span></span>)</span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
+
+<span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-c1">echo</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span>includeTemplate(<span class="pl-s"><span class="pl-pds">'</span>master/footer.tpl.php<span class="pl-pds">'</span></span>)</span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
 </pre></div>
 
 <p>Voila! Simple huh?</p>
 
 <h3>
-<a id="attention" class="anchor" href="#attention" aria-hidden="true"><span class="octicon octicon-link"></span></a>Attention</h3>
+<a id="attention" class="anchor" href="#attention" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Attention</h3>
 
 <ul>
-<li>While SavantPHP does provide the <strong>$this-&gt;escape()</strong> to sanitize your output, it's your responsibility to filter and sanitize your input deeply inside your 'coding back' (php code file). The aim with SavantPHP is only to act as a templating system, the rest is upon you!</li>
+<li>It's your responsibility to filter and sanitize your input. The aim with <strong>SavantPHP</strong> is only to act as a templating system, the rest is upon you!</li>
+<li>But I will explain in the incoming documentation / blog post of how you can filter/sanitize your output inside a template file when not possible directly within your code logic.</li>
 </ul>
 
 <h3>
-<a id="credit" class="anchor" href="#credit" aria-hidden="true"><span class="octicon octicon-link"></span></a>CREDIT</h3>
+<a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CHANGELOG</h3>
 
 <ul>
-<li>This project has been retouched by Khayrattee on Dec 2015 to keep the spirit of Savant which was <strong>started &amp; created by The Mighty 'Paul M. Jones' who is the author of <a href="https://github.com/auraphp">Aura PHP</a>.</strong>
-</li>
-<li>This project was handed over to Brett Bieber, but it seems it has been shamelessly abandoned as well as it's domain name. And he seems not so keen to be positive to PRs and on top of that no single sign of positivity in terms of pushing this project forward - too sad!</li>
-<li>This project is hence a FORK from [<a href="https://github.com/saltybeagle/Savant3">https://github.com/saltybeagle/Savant3</a>], but reworked to having namespaces &amp; composer magic &amp; slimming down the aim of Savant - <strong>hence the new name Savant PHP</strong>.</li>
+<li>Please see <a href="CHANGELOG.md">CHANGELOG</a> for details.</li>
 </ul>
 
 <h3>
-<a id="note" class="anchor" href="#note" aria-hidden="true"><span class="octicon octicon-link"></span></a>NOTE</h3>
+<a id="note" class="anchor" href="#note" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NOTE</h3>
 
 <ul>
 <li>I have removed the Filter &amp; Plugin System. If you need them, see version tagged v1.0.0</li>
+<li>see <a href="CHANGELOG.md">CHANGELOG</a> for all changes, as SavantPHP is NOT backward compatible with the old savant php.</li>
 </ul>
 
 <h3>
-<a id="the-future" class="anchor" href="#the-future" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Future</h3>
+<a id="credit" class="anchor" href="#credit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CREDIT</h3>
 
 <ul>
-<li>I have been a big fan and user of Savant. I decided to keep it alive and I'm still using it.</li>
-<li>I am not sure how far this will go, but I'm going to support it however I can (grateful if <strong>YOU</strong> contribute too) so that it can be used with the latest tools available &amp; latest PHP version available. This would be very helpful to many of people out there who like me &amp; YOU are inline with the aim above. So do this! cheers.</li>
-<li>Savant PHP still makes very much sense using as it honors the KISS principle. Consider this Savant PHP Reloaded!</li>
+<li>This project has been revamped/retouched by me, Khayrattee, on Dec 2015. I'm a die-hard fan of the philosophy of Savant. Thus I took the initiative to fork the old Savant &amp; rework it to keep the spirit of Savant which was <strong>started &amp; created by The Mighty 'Paul M. Jones' who is the author of <a href="https://github.com/auraphp">Aura PHP</a>.</strong>
+</li>
+<li>This project was handed over to Brett Bieber. While I'm sad he is not modernizing the old savant and keeping it abreast, I do understand he might have other priorities and commitments. Anyway, the new SavantPHP is here!</li>
+<li>This project is hence inspired from [<a href="https://github.com/saltybeagle/Savant3">https://github.com/saltybeagle/Savant3</a>]</li>
 </ul>
 
 <h3>
-<a id="your-contribution" class="anchor" href="#your-contribution" aria-hidden="true"><span class="octicon octicon-link"></span></a>Your Contribution</h3>
+<a id="the-future" class="anchor" href="#the-future" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Future</h3>
+
+<ul>
+<li>I have been a big fan and user of the previous Savant PHP. I decided to keep it alive and I'm still using it.</li>
+<li>I use SavantPHP on a frequent basis and my pet projects fully use it - so I'm going to support it however I can (grateful if <strong>YOU</strong> contribute too) so that it can be used with the latest tools available &amp; latest PHP version available. This would be very helpful to many of people out there who like me &amp; YOU are inline with the aim above. So do this! cheers.</li>
+<li>SavantPHP still makes very much sense using as it honors the KISS principle. Consider this SavantPHP Reloaded!</li>
+</ul>
+
+<h3>
+<a id="your-contribution" class="anchor" href="#your-contribution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Your Contribution</h3>
 
 <ul>
 <li>Please help in testing and improving it.</li>
@@ -113,7 +132,7 @@
 </ul>
 
 <h3>
-<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h3>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h3>
 
 <ul>
 <li>Add Tests suite</li>
