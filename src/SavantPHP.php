@@ -366,7 +366,7 @@ class SavantPHP
             );
         }
         if ($include) {
-            include_once $file;
+            include $file;
         } else {
             return $file;
         }
